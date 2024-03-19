@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileStoreRequest;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\UserInformation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,12 +16,27 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
+
+
+    //Store the user's information
+    public function store(Request $request): RedirectResponse
+    {
+        $attributes = $request->validate([
+            'blood_type' => 'required||max:255',
+            'contact_details' => 'required',
+            'location' => 'required'
+        ]);
+        UserInformation::create($attributes);
+        return  redirect('dashboard');
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
     }
+
 
     /**
      * Update the user's profile information.
