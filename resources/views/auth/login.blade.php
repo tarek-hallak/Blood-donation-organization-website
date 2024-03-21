@@ -1,8 +1,12 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
+        <h1 class="text-center text-xl">LOGIN</h1>
+    <h3 class="text-sm mt-3">
+        Does not have an email?
+            <a href="{{route('register')}}" class="underline text-red-600 hover:text-red-900 " >Register!</a>
+    </h3>
+    <form method="POST" action="{{ route('login') }}" class="mt-2">
         @csrf
 
         <!-- Email Address -->

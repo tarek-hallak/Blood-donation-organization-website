@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return strtolower($value);
     }
+    public function data()
+    {
+        return $this->hasMany(ListData::class,);
+    }
 }

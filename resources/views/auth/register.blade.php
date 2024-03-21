@@ -1,4 +1,7 @@
 <x-guest-layout>
+
+    <h1 class="text-center text-xl">SIGNUP</h1>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -8,7 +11,7 @@
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-        
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
