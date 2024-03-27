@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\BloodListingController;
+use App\Http\Controllers\RequestrationController;
 use App\Http\Controllers\ProfileController;
-use App\Models\ListData;
+use App\Models\Requestration;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,13 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::middleware('auth')->group(function () {
-    Route::post('/dashboard', [BloodListingController::class, 'store']);
+Route::middleware('auth')->group(function (){
+    Route::get('/dashboard',[RequestrationController::class ,'show'])->name('dashboard.index');
+    Route::resource('/dashboard',RequestrationController::class);
 });
 
 
