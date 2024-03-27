@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -24,7 +22,6 @@
                         </div>
 
                     </div>
-
                     <!--begin::Body-->
                     <div class="card-body p-0">
                         <!--begin::Table wrapper-->
@@ -34,31 +31,40 @@
                                 <!--begin::Thead-->
                                 <thead class="border-gray-200 fs-5 fw-bold bg-lighten">
                                 <tr>
-                                    <th class="w-250px min-w-175px ps-9">Blood Type</th>
-                                    <th class="min-w-125px">Status</th>
-                                    <th class="w-125px min-w-125px">Information</th>
-                                    <th class="w-275px min-w-250px px-0">Date</th>
-                                    <th class="min-w-125px min-w-125px">Location</th>
+
+                                    <th class="w-250px min-w-230px ps-9">Blood Type</th>
+                                    <th class="w-175px min-w-170px px-2">Status</th>
+
+                                    <th class="w-175px min-w-170px px-2">location</th>
+                                    <th class="min-w-125px min-w-175px">Information</th>
                                     <th class="w-100px"></th>
                                 </tr>
                                 </thead>
                                 <!--end::Thead-->
                                 <!--begin::Tbody-->
-                                <tbody class="fs-6 fw-bold text-gray-600">
+                                <tbody class="fs-5 fw-bold text-gray-600">
+                                @foreach($data as $item)
                                 <tr>
-                                    <td class="ps-9">none set</td>
-                                    <td class="ps-0">false</td>
-                                    <td>Nov 01, 2020</td>
-                                    <td>
-                                        <span class="badge badge-light-success fs-7 fw-bold">Active</span>
+                                    <td class="ps-9 ">{{$item->blood_type}}</td>
+                                    <td >
+                                        <span class="badge badge-light-success fs-6 fw-bold">{{$item->status}}</span>
                                     </td>
-                                    <td class="pe-9">
+                                    <td data-bs-target="license" class="ps-0">{{$item->location}}</td>
+                                    <td class="ps-0">
+                                        {{$item->information}}
+                                    </td>
+                                    <td><x-primary-button>show</x-primary-button></td>
 
-                                    </td>
                                 </tr>
+                                @endforeach
 
-                                </tbody>
                                 <!--end::Tbody-->
+                                        </table>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Body-->
                             </table>
                             <!--end::Table-->
                         </div>
