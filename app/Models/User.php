@@ -49,6 +49,6 @@ class User extends Authenticatable
     }
     public function data()
     {
-        return $this->hasMany(ListData::class,);
+        return $this->hasMany(Requestration::class);
     }
 }
