@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function (){
-    Route::get('/dashboard',[RequestrationController::class ,'show'])->name('dashboard.index');
+    Route::get('/dashboard',[RequestrationController::class ,'index'])->name('dashboard.index');
     Route::resource('/dashboard',RequestrationController::class);
 });
 
